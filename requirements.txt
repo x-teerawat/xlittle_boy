@@ -1,64 +1,43 @@
 absl-py==2.1.0
-aiohttp==3.9.3
-aiosignal==1.3.1
 astunparse==1.6.3
-async-timeout==4.0.3
-asyncio==3.4.3
 attention==5.0.0
-attrs==23.2.0
-bidict==0.23.1
-# Bottleneck @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_2bxpizxa3c/croot/bottleneck_1707864819812/work
-# Brotli @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_38mvgltu8c/croots/recipe/brotli-split_1659616064542/work
 cachetools==5.3.3
-certifi==2023.11.17
-charset-normalizer==3.1.0
-flatbuffers==24.3.7
-frozenlist==1.4.1
+certifi==2024.2.2
+charset-normalizer==3.3.2
+flatbuffers==24.3.25
 gast==0.4.0
-google-auth==2.28.2
+google-auth==2.29.0
 google-auth-oauthlib==1.0.0
 google-pasta==0.2.0
-# grpcio @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_7bxiys9u3r/croot/grpc-suite_1701982575666/work
-h11==0.14.0
-# h5py @ file:///Users/builder/miniconda3/envs/prefect/conda-bld/h5py_1637162753555/work
-# idna @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_771olrhiqw/croot/idna_1666125579282/work
-importlib_metadata==7.0.2
-# joblib @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_a357ltg47g/croot/joblib_1685113093574/work
+grpcio @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_7bxiys9u3r/croot/grpc-suite_1701982575666/work
+h5py @ file:///Users/builder/miniconda3/envs/prefect/conda-bld/h5py_1637162753555/work
+idna==3.6
+importlib_metadata==7.1.0
+joblib==1.4.0
 keras==2.13.1
-keras-attention==1.0.0
 Keras-Preprocessing==1.1.2
-libclang==16.0.6
-Markdown==3.5.2
+libclang==18.1.1
+Markdown==3.6
 MarkupSafe==2.1.5
-multidict==6.0.5
-netifaces==0.10.6
-numexpr @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_76yyu1p9jk/croot/numexpr_1683221830860/work
 numpy @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_ba5c3eaa-be93-4f42-ae24-fa720a3c6627m_sp7nbj/croots/recipe/numpy_and_numpy_base_1652801688716/work
 oauthlib==3.2.2
 opt-einsum==3.3.0
-packaging @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_6dm6d4jd_t/croot/packaging_1693575176524/work
-pandas @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b9nb2vqtpu/croot/pandas_1692289331806/work
-pandas_ta==0.3.14b0
-platformdirs @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a8u4fy8k9o/croot/platformdirs_1692205661656/work
-polygon-api-client==1.13.4
-pooch @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_1bocfs80f4/croot/pooch_1695850117888/work
+packaging==24.0
+pandas==2.0.3
+pandas-ta==0.3.14b0
+polygon-api-client==1.13.5
 protobuf==4.25.3
-pyasn1==0.5.1
-pyasn1-modules==0.3.0
-PySocks @ file:///Users/ktietz/Code/oss/ci_pkgs/pysocks_1626781349491/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
-python-engineio==4.9.0
-python-socketio==5.11.1
-pytz @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_6btwyyj8a1/croot/pytz_1695131592184/work
-requests @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b3tnputioh/croot/requests_1707355573919/work
-requests-oauthlib==1.4.0
+pyasn1==0.6.0
+pyasn1_modules==0.4.0
+python-dateutil==2.9.0.post0
+pytz==2024.1
+requests==2.31.0
+requests-oauthlib==2.0.0
 rsa==4.9
-scikit-learn @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_75x_mwrnoj/croot/scikit-learn_1690978919744/work
+scikit-learn==1.3.2
 scipy==1.10.1
-simple-websocket==1.0.0
 six @ file:///tmp/build/80754af9/six_1644875935023/work
-socketio==0.2.1
-tabulate @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a301xhcsz1/croot/tabulate_1701354815389/work
+tabulate==0.9.0
 tensorboard==2.13.0
 tensorboard-data-server==0.7.2
 tensorboard-plugin-wit==1.8.1
@@ -66,13 +45,11 @@ tensorflow==2.13.0
 tensorflow-estimator==2.13.0
 tensorflow-macos==2.13.0
 termcolor==2.4.0
-threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
+threadpoolctl==3.4.0
 typing_extensions==4.5.0
-tzdata @ file:///croot/python-tzdata_1690578112552/work
+tzdata==2024.1
 urllib3==1.26.18
 websockets==12.0
-Werkzeug==3.0.1
+Werkzeug==3.0.2
 wrapt==1.16.0
-wsproto==1.2.0
-yarl==1.9.4
-zipp==3.17.0
+zipp==3.18.1
