@@ -15,12 +15,12 @@ class Utils():
         list_n_macd,
         list_n_rsi,
         list_n_tr,
+        ListPredictionTypes,
         list_model_names,
-        ListPredictionType,
         list_n_prediction_periods,
         list_n_lags,
         ListIsNormalization,
-        ListIsCrossValidation,
+        ListIsCrossValidations,
         list_n_validation_sizes,
         list_n_epochs,
         list_n_batch_sizes,
@@ -40,12 +40,12 @@ class Utils():
         self.list_n_macd = list_n_macd
         self.list_n_rsi = list_n_rsi
         self.list_n_tr = list_n_tr
+        self.ListPredictionTypes = ListPredictionTypes
         self.list_model_names = list_model_names
-        self.ListPredictionType = ListPredictionType
         self.list_n_prediction_periods = list_n_prediction_periods
         self.list_n_lags = list_n_lags
         self.ListIsNormalization = ListIsNormalization
-        self.ListIsCrossValidation = ListIsCrossValidation
+        self.ListIsCrossValidations = ListIsCrossValidations
         self.list_n_validation_sizes = list_n_validation_sizes
         self.list_n_epochs = list_n_epochs
         self.list_n_batch_sizes = list_n_batch_sizes
@@ -56,8 +56,9 @@ class Utils():
         self.IsSaveModel = IsSaveModel
 
         self.start_train_date = pd.to_datetime(self.start_test_date) - relativedelta(days=self.n_train_periods)
+        # self.start_train_date = self.start_train_date.tz_localize('US/Eastern')
         self.end_train_date = pd.to_datetime(self.start_test_date) - relativedelta(days=1)
-        self.end_test_date = pd.to_datetime(self.start_test_date) + relativedelta(days=self.n_test_periods)
+        self.end_test_date = pd.to_datetime(self.start_test_date)
 
         self.file_name = f"stock_name_{self.stock_name}__start_test_date_{self.start_test_date}__n_train_periods_{self.n_train_periods}__n_test_periods_{self.n_test_periods}__n_multiplier_{self.n_multiplier}__timespan_{self.timespan}"
 
@@ -77,22 +78,21 @@ class Utils():
         self.cleaned_data = clean_data(self, self.prepared_data)
 
         ### Generate indicators
-        indicator_atr(self)
-        indicator_banker_retail(self)
-        indicator_ema(self)
-        indicator_macd(self)
-        indicator_rsi(self)
-        indicator_tr(self)
+        # indicator_atr(self)
+        # indicator_banker_retail(self)
+        # indicator_ema(self)
+        # indicator_macd(self)
+        # indicator_rsi(self)
+        # indicator_tr(self)
 
         ### Search
-        search_ema_crossover_and_crossunder(self)
+        # search_ema_crossover_and_crossunder(self)
 
-
-        ### Split train and test data
-        # split_train_and_test_data(self)
+        ### Determine data
+        determine_data(self)
 
         ### Parameter tuning
-        # tune_parameters(self)
+        tune_parameters(self)
 
 
         ### Transfer learning

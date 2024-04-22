@@ -1,37 +1,37 @@
-# from save_model_weights import save_model_weights
+from _libs import *
+
+### To train and test models
+from split_train_and_test_data import split_train_and_test_data
 from form_data import form_data
 from normalize_data import normalize_data
 from cross_validation import cross_validation
 from split_train_and_validation_data import split_train_and_validation_data
 from evaluate_model import evaluate_model
 from _build_models import _build_models
-
-import sys
-sys.path.insert(0, "../templates")
-from _libs import *
+from test_model import test_model
 
 def tune_parameters(self):
-    for self.model_name in self.list_model_names:
-        for self.PredictionType in self.ListPredictionType:
-            for self.n_prediction_periods in self.list_n_prediction_periods:
-                for self.n_lags in self.list_n_lags:
+    for self.PredictionType in self.ListPredictionTypes:
+        for self.n_lags in self.list_n_lags:
+        ### Split train and test data
+            split_train_and_test_data(self)
+
+            for self.model_name in self.list_model_names:
+                for self.n_prediction_periods in self.list_n_prediction_periods:
                     for self.IsNormalization in self.ListIsNormalization:
-                        for self.IsCrossValidation in self.ListIsCrossValidation:
+                        for self.IsCrossValidation in self.ListIsCrossValidations:
                             for self.n_validation_size in self.list_n_validation_sizes:
                                 ### Determine train data
                                 self.selected_train_data = self.train_data[['open', 'high', 'low', 'close']].copy()
-                                # self.selected_train_data = self.selected_train_data.tail(20)
 
                                 ### Convert DataFrame to array
                                 self.arr_selected_train_data = np.array(self.selected_train_data)
-                                # print(f"self.arr_selected_train_data.shape: {self.arr_selected_train_data.shape}")
-                                # print(f"self.arr_selected_train_data: \n{self.arr_selected_train_data}")
                                 
                                 ### Normalization
-                                normalize_data(self)
+                                normalize_data(self, self.arr_selected_train_data, "training")
 
                                 ### Form data
-                                form_data(self)
+                                form_data(self, self.arr_selected_train_data, self.n_lags, self.n_prediction_periods, self.PredictionType)
 
                                 ### Cross validation
                                 cross_validation(self)
@@ -41,7 +41,7 @@ def tune_parameters(self):
 
                                 for self.n_epochs in self.list_n_epochs:
                                     for self.n_batch_size in self.list_n_batch_sizes:
-                                        self.params = f"model_name_{self.model_name}__PredictionType_{self.PredictionType}__n_prediction_periods_{self.n_prediction_periods}__n_lags_{self.n_lags}__IsCrossValidation_{self.IsCrossValidation}__n_validation_size_{self.n_validation_size}__n_epochs_{self.n_epochs}__n_batch_size_{self.n_batch_size}"
+                                        self.params = f"model_name_{self.model_name}__PredictionType_{self.PredictionType}__n_prediction_periods_{self.n_prediction_periods}__n_lags_{self.n_lags}__IsNormalization_{self.IsNormalization}__IsCrossValidation_{self.IsCrossValidation}__n_validation_size_{self.n_validation_size}__n_epochs_{self.n_epochs}__n_batch_size_{self.n_batch_size}"
                                         print(f"params: \n{self.params}")
 
                                         ### Build a model
@@ -52,13 +52,21 @@ def tune_parameters(self):
                                         if self.IsNormalization:
                                             self.predicted_values = self.list_scalers[self.prediction_column_nth].inverse_transform(self.predicted_values)
 
+                                        # print(f"self.predicted_values: {self.predicted_values}")
+
                                         ### Evaluate model
-                                        evaluate_model(self)
+                                        evaluate_model(self, self.y_valid)
+                                        print("Model training completed")
                                         print()
 
                                         if self.win_rate >= self.win_rate_treshold:
+                                            ### Test models
+                                            test_model(self)
+                                            
+                                            ### Evaluate model
+                                            # evaluate_model(self, self.y)
                                             if self.IsSaveModel:
-                                                self.model.save(f"{self.params}")
+                                                self.model.save(f"main/models_in_use/{self.params}")
                                             break
                                     if self.win_rate >= self.win_rate_treshold:
                                         break
@@ -74,7 +82,5 @@ def tune_parameters(self):
                     break
             if self.win_rate >= self.win_rate_treshold:
                 break
-        if self.win_rate >= self.win_rate_treshold:
-            break
         
                             

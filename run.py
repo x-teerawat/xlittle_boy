@@ -4,18 +4,18 @@ from _utils import *
 
 if __name__ == "__main__": 
     stock_name = "COIN"
-    start_test_date = "2024-03-27"
-    n_train_periods = 100 # Unit: Day
+    start_test_date = "2024-04-12"
+    n_train_periods = 2 # Unit: Day
     n_test_periods = 1 # Unit: Day
-    multiplier = 1 # Number of second/minute/hour/day
-    timespan = "hour" # Unit of multiplier
+    multiplier = 15 # Number of second/minute/hour/day
+    timespan = "minute" # Unit of multiplier
     # list_n_ema = [[12, 24], [6, 12]]
     # list_model_names = ["lstm_model_v_1_0", "attention_model_v_1_0"]
-    # ListPredictionType = ["low", "high"]
-    ListPredictionType = ["high"]
+    # ListPredictionTypes = ["low", "high"]
+    ListPredictionTypes = ["high"]
     # list_n_prediction_periods = [0, 1] # Minimum: 0
     # list_n_lags = [10, 20]
-    # ListIsCrossValidation = [True, False]
+    # ListIsCrossValidations = [True, False]
     # list_n_validation_siz1 = [0.2, 0.3]
     # list_n_epochs = [1, 2]
     # list_n_batch_sizes = [100, 200]
@@ -23,27 +23,27 @@ if __name__ == "__main__":
 
     list_n_atr = [14, 28]
     list_n_ema = [6, 12, 24]
-    list_n_macd = [[12, 26, 9], [26, 54, 28]]
+    list_n_macd = [[12, 26, 9]]
     list_n_rsi = [14, 28]
     list_n_tr = [1, 14]
     """
         ["lstm_model_v_1_0", "lstm_model_v_1_1", lstm_model_v_2_1, "attention_model_v_1_0"]
     """
-    list_model_names = ["lstm_model_v_2_10"]
+    list_model_names = ["lstm_model_v_1_0"]
     list_n_prediction_periods = [1] # Minimum: 0
-    list_n_lags = [16]
+    list_n_lags = [30]
     ListIsNormalization = [True]
-    ListIsCrossValidation = [False]
+    ListIsCrossValidations = [True]
     list_n_validation_sizes = [0.2]
     list_n_epochs = [1]
     list_n_batch_sizes = [1000]
-    threshold_between_actual_and_predicted_values = 0.3
-    win_rate_treshold = 70 # Unit: Percentage
+    threshold_between_actual_and_predicted_values = 0.5
+    win_rate_treshold = 0 # Unit: Percentage
 
     IsSaveData = False
-    IsSaveModel = False
+    IsSaveModel = True
 
-    # print(f"ListIsCrossValidation: \n{ListIsCrossValidation}")
+    # print(f"ListIsCrossValidations: \n{ListIsCrossValidations}")
 
     Utils(
         stock_name,
@@ -57,12 +57,12 @@ if __name__ == "__main__":
         list_n_macd,
         list_n_rsi,
         list_n_tr,
+        ListPredictionTypes,
         list_model_names,
-        ListPredictionType,
         list_n_prediction_periods,
         list_n_lags,
         ListIsNormalization,
-        ListIsCrossValidation,
+        ListIsCrossValidations,
         list_n_validation_sizes,
         list_n_epochs,
         list_n_batch_sizes,

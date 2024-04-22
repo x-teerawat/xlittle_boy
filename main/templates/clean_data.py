@@ -13,10 +13,6 @@ def clean_data(self, prepared_data):
                 selected_end_time = (pd.Timestamp('20:00:00')-relativedelta(minutes=self.n_multiplier)).strftime('%H:%M:%S')
             elif self.timespan == 'hour':
                 selected_end_time = (pd.Timestamp('20:00:00')-relativedelta(hours=self.n_multiplier)).strftime('%H:%M:%S')
-            # if self.timespan == 'second':
-            #     selected_end_time = (pd.Timestamp('20:00:00')-relativedelta(seconds=self.n_multiplier)).strftime('%H:%M:%S')
-            # print(f"pd.Timestamp('20:00:00')-relativedelta(seconds=1): {(pd.Timestamp('20:00:00')-relativedelta(seconds=1)).strftime('%H:%M:%S')}")
-            # prepared_data_copy = prepared_data_copy[(prepared_data_copy.index>=f"{_date} 04:00:00")*(prepared_data_copy.index<=f"{_date} 19:59:59")]
 
             ### Determine start and end trading time
             if prepared_data_copy.time[0] != "04:00:00": # Start trading time

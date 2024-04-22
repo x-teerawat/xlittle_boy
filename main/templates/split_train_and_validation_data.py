@@ -17,8 +17,7 @@ def split_train_and_validation_data(self):
     # print(f"self.y_valid: {self.y_valid}")
     # print(f"self.y_valid.shape: {self.y_valid.shape}")
 
-    if self.IsNormalization:
-        self.y_valid = self.list_scalers[self.prediction_column_nth].inverse_transform(self.y_valid)
+    
 
     print(f"self.x_train.shape: {self.x_train.shape}")
     print(f"self.y_train.shape: {self.y_train.shape}")
