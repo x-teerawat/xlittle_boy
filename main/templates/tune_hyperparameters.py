@@ -10,10 +10,14 @@ from evaluate_model import evaluate_model
 from _build_models import _build_models
 from test_model import test_model
 
-def tune_parameters(self):
+def tune_hyperparameters(self):
+    self.dict_low_and_high_scalers = {PredictionType: [] for PredictionType in self.ListPredictionTypes}
+    # print(f"self.dict_low_and_high_scalers: {self.dict_low_and_high_scalers}")
+
     for self.PredictionType in self.ListPredictionTypes:
+        print(f"self.PredictionType: {self.PredictionType}")
         for self.n_lags in self.list_n_lags:
-        ### Split train and test data
+            ### Split train and test data
             split_train_and_test_data(self)
 
             for self.model_name in self.list_model_names:
@@ -42,14 +46,14 @@ def tune_parameters(self):
                                 for self.n_epochs in self.list_n_epochs:
                                     for self.n_batch_size in self.list_n_batch_sizes:
                                         self.params = f"model_name_{self.model_name}__PredictionType_{self.PredictionType}__n_prediction_periods_{self.n_prediction_periods}__n_lags_{self.n_lags}__IsNormalization_{self.IsNormalization}__IsCrossValidation_{self.IsCrossValidation}__n_validation_size_{self.n_validation_size}__n_epochs_{self.n_epochs}__n_batch_size_{self.n_batch_size}"
-                                        print(f"params: \n{self.params}")
+                                        print(f"params: {self.params}")
 
                                         ### Build a model
                                         _build_models(self)    
 
                                         ### Prediction
                                         self.predicted_values = self.model.predict(self.x_valid)
-                                        if self.IsNormalization:
+                                        if self.IsNormalization: ### Inverse transform
                                             self.predicted_values = self.list_scalers[self.prediction_column_nth].inverse_transform(self.predicted_values)
 
                                         # print(f"self.predicted_values: {self.predicted_values}")
@@ -60,11 +64,8 @@ def tune_parameters(self):
                                         print()
 
                                         if self.win_rate >= self.win_rate_treshold:
-                                            ### Test models
-                                            test_model(self)
-                                            
-                                            ### Evaluate model
-                                            # evaluate_model(self, self.y)
+                                            self.dict_low_and_high_scalers[self.PredictionType] = self.list_scalers
+
                                             if self.IsSaveModel:
                                                 self.model.save(f"main/models_in_use/{self.params}")
                                             break

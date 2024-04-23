@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "main/templates")
-from _utils import *
+from _utils import Utils
 
 if __name__ == "__main__": 
     stock_name = "COIN"
@@ -11,8 +11,8 @@ if __name__ == "__main__":
     timespan = "minute" # Unit of multiplier
     # list_n_ema = [[12, 24], [6, 12]]
     # list_model_names = ["lstm_model_v_1_0", "attention_model_v_1_0"]
-    # ListPredictionTypes = ["low", "high"]
-    ListPredictionTypes = ["high"]
+    ListPredictionTypes = ["low", "high"]
+    # ListPredictionTypes = ["low"]
     # list_n_prediction_periods = [0, 1] # Minimum: 0
     # list_n_lags = [10, 20]
     # ListIsCrossValidations = [True, False]
@@ -42,6 +42,7 @@ if __name__ == "__main__":
 
     IsSaveData = False
     IsSaveModel = True
+    IsSaveScaler = True
 
     # print(f"ListIsCrossValidations: \n{ListIsCrossValidations}")
 
@@ -70,4 +71,7 @@ if __name__ == "__main__":
         win_rate_treshold,
         IsSaveData,
         IsSaveModel,
+        IsSaveScaler
     ).run()
+
+    

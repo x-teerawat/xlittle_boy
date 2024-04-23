@@ -13,6 +13,7 @@ import pytz
 
 ### To import another folder
 import sys
+import os
 
 ### To normalized
 from sklearn.preprocessing import MinMaxScaler

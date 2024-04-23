@@ -28,6 +28,7 @@ class Utils():
         win_rate_treshold,
         IsSaveData,
         IsSaveModel,
+        IsSaveScaler
     ):
         self.stock_name = stock_name
         self.start_test_date = start_test_date
@@ -54,6 +55,7 @@ class Utils():
         
         self.IsSaveData = IsSaveData
         self.IsSaveModel = IsSaveModel
+        self.IsSaveScaler = IsSaveScaler
 
         self.start_train_date = pd.to_datetime(self.start_test_date) - relativedelta(days=self.n_train_periods)
         # self.start_train_date = self.start_train_date.tz_localize('US/Eastern')
@@ -92,11 +94,13 @@ class Utils():
         determine_data(self)
 
         ### Parameter tuning
-        tune_parameters(self)
+        tune_hyperparameters(self)
+
+        ### Test models
+        # print(f"self.list_low_and_high_scalers['high']: {self.list_low_and_high_scalers['high']}")
+        # print(f"type(self.list_low_and_high_scalers['high']): {type(self.list_low_and_high_scalers['high'])}")
+        test_model(self)
 
 
         ### Transfer learning
         # transfer_learning(self)
-
-        # a()
-        # print(1)

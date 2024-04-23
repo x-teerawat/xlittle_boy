@@ -19,6 +19,6 @@ from determine_data import determine_data
 
 ###
 from split_train_and_test_data import split_train_and_test_data
-from tune_parameters import tune_parameters
+from tune_hyperparameters import tune_hyperparameters
 from test_model import test_model
 from retrain_model import retrain_model
