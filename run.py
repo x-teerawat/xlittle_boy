@@ -40,9 +40,9 @@ if __name__ == "__main__":
     threshold_between_actual_and_predicted_values = 0.5
     win_rate_treshold = 0 # Unit: Percentage
 
-    IsSaveData = False
-    IsSaveModel = True
-    IsSaveScaler = True
+    IsSaveData = True
+    IsSaveModel = False
+    IsSaveScaler = False
 
     # print(f"ListIsCrossValidations: \n{ListIsCrossValidations}")
 
