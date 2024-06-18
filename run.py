@@ -4,7 +4,7 @@ from _utils import Utils
 
 if __name__ == "__main__": 
     stock_name = "COIN"
-    start_test_date = "2024-04-12"
+    start_test_date = "2024-04-15"
     n_train_periods = 2 # Unit: Day
     n_test_periods = 1 # Unit: Day
     multiplier = 15 # Number of second/minute/hour/day

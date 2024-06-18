@@ -102,9 +102,7 @@ def clean_data(self, prepared_data):
             # lst_cleaned_data.append(prepared_data_copy)
 
         ### Concat
-        cleaned_data = pd.concat(lst_cleaned_data)
+        self.cleaned_data = pd.concat(lst_cleaned_data)
     
     else:
-        cleaned_data = prepared_data.copy()
-
-    return cleaned_data
+        self.cleaned_data = prepared_data.copy()

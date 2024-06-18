@@ -74,10 +74,13 @@ class Utils():
     
         ### Prepare data
         prepare_data(self)
-        # print(tabulate(self.prepared_data, self.prepared_data.columns))
+        print("prepared_data")
+        print(tabulate(self.prepared_data, self.prepared_data.columns))
         
         ### Clean data
-        self.cleaned_data = clean_data(self, self.prepared_data)
+        clean_data(self, self.prepared_data)
+        print("cleaned_data")
+        print(tabulate(self.cleaned_data, self.cleaned_data.columns))
 
         ### Generate indicators
         # indicator_atr(self)
@@ -91,15 +94,15 @@ class Utils():
         # search_ema_crossover_and_crossunder(self)
 
         ### Determine data
-        determine_data(self)
+        # determine_data(self)
 
         ### Parameter tuning
-        tune_hyperparameters(self)
+        # tune_hyperparameters(self)
 
         ### Test models
         # print(f"self.list_low_and_high_scalers['high']: {self.list_low_and_high_scalers['high']}")
         # print(f"type(self.list_low_and_high_scalers['high']): {type(self.list_low_and_high_scalers['high'])}")
-        test_model(self)
+        # test_model(self)
 
 
         ### Transfer learning
